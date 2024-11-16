@@ -21,7 +21,7 @@ function Register({ setIsAuthenticated }) {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/auth/signup",
+        "https://api-spyneai-car.onrender.com/api/auth/signup",
         {
           name: formData.name,
           email: formData.email,

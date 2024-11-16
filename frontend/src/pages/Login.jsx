@@ -14,7 +14,7 @@ function Login({ setIsAuthenticated }) {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/auth/login",
+        "https://api-spyneai-car.onrender.com/api/auth/login",
         formData
       );
       console.log(response.data);

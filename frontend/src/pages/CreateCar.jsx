@@ -40,12 +40,16 @@ function CreateCar() {
         formDataToSend.append("images", image);
       });
 
-      await axios.post("http://localhost:5000/api/cars", formDataToSend, {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-          "Content-Type": "multipart/form-data",
-        },
-      });
+      await axios.post(
+        "https://api-spyneai-car.onrender.com/api/cars",
+        formDataToSend,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
 
       navigate("/dashboard");
     } catch (err) {

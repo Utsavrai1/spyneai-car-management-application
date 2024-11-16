@@ -18,11 +18,14 @@ function CarDetails() {
 
   const fetchCarDetails = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/api/cars/${id}`, {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-      });
+      const response = await axios.get(
+        `https://api-spyneai-car.onrender.com/api/cars/${id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      );
       setCar(response.data);
     } catch (err) {
       setError(err.response?.data?.message || "An error occurred");

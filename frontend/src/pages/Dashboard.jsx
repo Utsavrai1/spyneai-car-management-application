@@ -19,11 +19,14 @@ function Dashboard() {
 
   const fetchCars = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/cars", {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-      });
+      const response = await axios.get(
+        "https://api-spyneai-car.onrender.com/api/cars",
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      );
       setCars(response.data);
       setLoading(false);
     } catch (error) {
@@ -36,7 +39,7 @@ function Dashboard() {
     e.preventDefault();
     try {
       const response = await axios.get(
-        `http://localhost:5000/api/cars/search?keyword=${searchTerm}`,
+        `https://api-spyneai-car.onrender.com/api/cars/search?keyword=${searchTerm}`,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -56,11 +59,14 @@ function Dashboard() {
 
   const handleDelete = async () => {
     try {
-      await axios.delete(`http://localhost:5000/api/cars/${selectedCar._id}`, {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-      });
+      await axios.delete(
+        `https://api-spyneai-car.onrender.com/api/cars/${selectedCar._id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      );
       setCars(cars.filter((car) => car._id !== selectedCar._id));
       setShowDeleteModal(false);
     } catch (error) {
@@ -76,7 +82,7 @@ function Dashboard() {
   const handleEdit = async (updatedCar) => {
     try {
       const response = await axios.put(
-        `http://localhost:5000/api/cars/${selectedCar._id}`,
+        `https://api-spyneai-car.onrender.com/api/cars/${selectedCar._id}`,
         updatedCar,
         {
           headers: {

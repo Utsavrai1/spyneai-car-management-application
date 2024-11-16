@@ -27,7 +27,7 @@ const swaggerOptions = {
     },
     servers: [
       {
-        url: "<Production Url>",
+        url: "https://api-spyneai-car.onrender.com",
         description: "Production server",
       },
       {
